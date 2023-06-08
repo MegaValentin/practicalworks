@@ -101,13 +101,13 @@ Utilizando la estructura for, crear un script que calcule el factorial de un nú
 function factorial(n){
     let resultado = 1;
     for (let i = 1; i <= n; i++){
-        resultado = i;
+        resultado *= i;
 
     }
     
     return resultado;
 }
-factorial(20)
+console.log(factorial(5))
 
 
 
