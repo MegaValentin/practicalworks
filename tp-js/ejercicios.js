@@ -97,3 +97,52 @@ multiplicar todos los factores n x (n-1) x (n-2) ...... Así, el factorial de 5 
 es igual a: 5! = 5 x 4 x 3 x 2 x 1 = 120
 Utilizando la estructura for, crear un script que calcule el factorial de un número entero.
   */
+
+function factorial(n){
+    let resultado = 1;
+    for (let i = 1; i <= n; i++){
+        resultado = i;
+
+    }
+    
+    return resultado;
+}
+factorial(20)
+
+
+
+/*Ejercicio 6
+Escribir un script que simule el lanzamiento de dos dados. Hacer uso de la función
+Math.random para obtener números aleatorios entre 1 y 6 para cada uno de los
+lanzamientos de los dados. Sumar el resultado de lanzar dos dados y anotar en un array
+el número de apariciones de dicha suma, repitiendo 36.000 veces esta operación.
+Mostrar un mensaje indicando cual es el valor que más veces se repitió. */
+function tirarDado() {
+    return Math.floor(Math.random() * 6) + 1;
+}
+function tirarDosDados() {
+    let dice1 = tirarDado();
+    let dice2 = tirarDado();
+    return dice1 + dice2;
+}
+let valorRepetido = {};
+for (let i = 0; i < 36000; i++) {
+
+    let suma = tirarDosDados();
+    if (valorRepetido.hasOwnProperty(suma)) {
+        
+        valorRepetido[suma]++;
+        
+    } else {
+        valorRepetido[suma] = 1;
+    }
+}
+console.log(valorRepetido)
+let mostFrequentSum = Object.keys(valorRepetido)[0];
+console.log(mostFrequentSum)
+for (let sum in valorRepetido) {
+    if (valorRepetido[sum] > valorRepetido[mostFrequentSum]) {
+      mostFrequentSum = sum;
+    }
+}
+console.log("El valor que más veces se repitió es: " + mostFrequentSum);
