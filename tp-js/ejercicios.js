@@ -91,6 +91,7 @@ Si no coinciden, se muestra un mensaje al usuario diciéndole que la letra que h
 indicado no es correcta. En otro caso, se muestra un mensaje indicando que el
 número y la letra de DNI son correctos. */
 
+
 /*Ejercicio 4
 El factorial de un número entero n es una operación matemática que consiste en
 multiplicar todos los factores n x (n-1) x (n-2) ...... Así, el factorial de 5 (escrito como 5!)
@@ -109,7 +110,32 @@ function factorial(n){
 }
 console.log(factorial(5))
 
+/*Ejercicio 5
+Almacenar en una variable una cadena de texto e indicar si la misma es un palíndromo,
+es decir, si se lee de la misma forma desde la izquierda y desde la derecha. Ejemplo de
+palíndromo: "La ruta nos aporto otro paso natural". */
 
+function esPalindromo(cadena) {
+    
+    cadena = cadena.replace(/\s/g, '').toLowerCase();
+
+
+    if (cadena === cadena.split('').reverse().join('')) {
+        return true;
+    } else {
+        return false;
+    }
+}
+  
+  
+var texto = "neuquen";
+
+
+if (esPalindromo(texto)) {
+console.log("La cadena es un palíndromo.");
+} else {
+console.log("La cadena no es un palíndromo.");
+}
 
 /*Ejercicio 6
 Escribir un script que simule el lanzamiento de dos dados. Hacer uso de la función
