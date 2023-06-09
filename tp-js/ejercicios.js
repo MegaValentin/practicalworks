@@ -90,7 +90,24 @@ explicado anteriormente.
 Si no coinciden, se muestra un mensaje al usuario diciéndole que la letra que ha
 indicado no es correcta. En otro caso, se muestra un mensaje indicando que el
 número y la letra de DNI son correctos. */
-
+function DNI(){
+    let dniNumero = prompt("Numero del DNI:");
+    let dniLetra = prompt("Letra del DNI");
+    
+    if (dniNumero < 0 || dniNumero > 99999999){
+        console.log("Numero de DNI no valido");
+    } else {
+        let resto = dniNumero % 23;
+        let letraCalculada = dniLetra[resto];
+    
+        if (letraCalculada !== dniLetra.toUpperCase()){
+            console.log("Letra ingresada no es correcta");
+        } else {
+            console.log("El numero y letra de DNI es correcto")
+        }
+    }
+}
+DNI()
 
 /*Ejercicio 4
 El factorial de un número entero n es una operación matemática que consiste en
