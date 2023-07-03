@@ -72,33 +72,33 @@ Crear un objeto llamado "empresa" que contenga un arreglo de objetos "empleado".
 Cada objeto empleado debe tener las propiedades nombre y salario. Implementar los
 métodos para agregar nuevos empleados, calcular el salario promedio de la empresa y
 obtener el empleado con el salario más alto. */
-function agregarEmpleado(nuevoEmpleado){
-    this.empleados.push(nuevoEmpleado)
-}
-function calcularSalario(){
-    let salarioPromedio = 0;
-
-    this.empleados.forEach(empleado => {
-        salarioPromedio += empleado.salario
-    });
-    console.log("El salario promedio es de: " + salarioPromedio);
-    return salarioPromedio
-}
-
 const empresa = {
     empleados : [
         {
             nombre: "Valentin",
             salario: 1200
         }
-    ]
-}
-agregarEmpleado(
-    {
-        nombre: "javier",
-        salario: 1200
+    ],
+    agregarEmpleado: function(nuevoEmpleado){
+        this.empleados.push(nuevoEmpleado)
+
+    },
+    calcularSalario: function(){
+        this.empleados.forEach(empleado => {
+            salarioPromedio += empleado.salario
+        });
+        console.log("El salario promedio es de: " + salarioPromedio);
+        return salarioPromedio
+    },
+    sueldoAlto: function(){
+
     }
-)
+
+}
+empresa.agregarEmpleado({
+    nombre: "Juan",
+    salario: 1200
+})
 console.log(empresa)
 /*
 Ejercicio 6
