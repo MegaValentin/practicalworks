@@ -43,6 +43,20 @@ console.log(textoSinPatron)
 Programa una función para convertir números de base binaria a decimal y viceversa. Por
 ejemplo, miFuncion(100, 2) devolverá 4 en base 10. */
 
+function binarioADecimal (binario){
+    let decimal = 0;
+    let potencia = 0;
+
+    for(let i = binario.length -1; i>= 0 ; i--){
+        let bit = parseInt(binario.charAt(i));
+        decimal += bit * Math.pow(2, potencia);
+        potencia++;
+    }
+    return decimal;
+}
+let binario = "10101";
+let decimal = binarioADecimal(binario)
+console.log(decimal)
 
 
 /*Ejercicio 4
