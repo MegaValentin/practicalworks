@@ -63,6 +63,29 @@ console.log(decimal)
 Programa una función que dada una fecha válida determine cuantos años han pasado
 hasta el día de hoy. Por ejemplo, miFuncion(new Date(1987,10,5)) devolverá 35 años. */
 
+function edad(fecha){
+
+    let fechaActual = new Date()
+    let anioActual = fechaActual.getFullYear()
+    let mesActual = fechaActual.getMonth() +1;
+    let diaActual = fechaActual.getDate();
+
+    let separarFecha = fecha.split("-");
+    let anioFecha = parseInt(separarFecha[0]);
+    let mesFecha = parseInt(separarFecha[1]);
+    let diaFecha = parseInt(separarFecha[2]);
+    
+    let restarAños = anioActual - anioFecha
+
+    if(mesActual < mesFecha || (mesActual === mesFecha && diaActual < diaFecha)){
+        restarAños--;
+    }
+    return restarAños
+}
+let fecha = "1999-12-20"
+let cumple = edad(fecha)
+console.log(cumple)
+
 /* Ejercicio 5
 Programa una función que dada una cadena de texto cuente el número de vocales y
 consonantes. Por ejemplo, miFuncion("Hola Mundo") devolverá vocales: 4,
