@@ -20,7 +20,7 @@ function miFuncion(texto, palabra){
     return contador
 }
 
-    const textoLargo = "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem  ipsum dolor sit amet consectetur adipisicing elit. Doloribus porro incidunt nostrum a, quasi explicabo corporis, similique maiores necessitatibus aut eligendi aliquam libero. Quod magni a eum, labore eveniet vitae!"
+    const textoLargo = "Lorem  Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem  ipsum dolor sit amet consectetur adipisicing elit. Doloribus porro incidunt nostrum a, quasi explicabo corporis, similique maiores necessitatibus aut eligendi aliquam libero. Quod magni a eum, labore eveniet vitae!"
 
 miFuncion(textoLargo, "Lorem")
 
@@ -28,9 +28,22 @@ miFuncion(textoLargo, "Lorem")
 Programa una función que elimine cierto patrón de caracteres de un texto dado. Por
 ejemplo, miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá "1, 2, 3, 4 y 5”. */
 
+function eliminarPatron(texto, patron){
+    let patronRegex = new RegExp(patron, 'g')
+    let textoSinPatron = texto.replace(patronRegex, ' ')
+    return textoSinPatron
+}
+
+let texto = "hola gente como anda";
+let patron = "gen";
+let textoSinPatron = eliminarPatron(texto, patron)
+console.log(textoSinPatron)
+
 /*Ejercicio 3
 Programa una función para convertir números de base binaria a decimal y viceversa. Por
 ejemplo, miFuncion(100, 2) devolverá 4 en base 10. */
+
+
 
 /*Ejercicio 4
 Programa una función que dada una fecha válida determine cuantos años han pasado
