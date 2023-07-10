@@ -54,7 +54,7 @@ function binarioADecimal (binario){
     }
     return decimal;
 }
-let binario = "10101";
+let binario = "100";
 let decimal = binarioADecimal(binario)
 console.log(decimal)
 
@@ -93,6 +93,7 @@ consonantes. Por ejemplo, miFuncion("Hola Mundo") devolverá vocales: 4,
 consonantes: 5. Utilizar expresiones regulares.*/
 console.log("ejercicio 5")
 
+
 /*Ejercicio 6
 Programa una función que dado un arreglo de elementos, elimine los duplicados. Por
 ejemplo, miFuncion(["x", 10, "x", 2, "10", 10, true, true]) devolverá ["x", 10, 2, "10",
@@ -113,6 +114,19 @@ ejemplo, promedio([9,8,7,6,5,4,3,2,1,0]) devolverá 4.5. No utilizar estructuras
 repetitivas. Consultar en la documentación algún método de los arreglos que permitan
 solucionar el ejercicio. */
 console.log("ejercicio 7")
+function promedioDeArr(arr){
+    if (arr.length === 0){
+        return 0;
+    }
+    let sum = arr.reduce(function (a, b){
+        return a + b
+    })
+    return sum / arr.length
+}
+
+let arreglo = [9,8,7,6,5,4,3,2,1,0]
+let promedio = promedioDeArr(arreglo)
+console.log(promedio)
 
 /*Ejercicio 8
 Programa una clase llamada Pelicula.
