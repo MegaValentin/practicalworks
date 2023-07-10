@@ -91,12 +91,20 @@ console.log(cumple)
 Programa una función que dada una cadena de texto cuente el número de vocales y
 consonantes. Por ejemplo, miFuncion("Hola Mundo") devolverá vocales: 4,
 consonantes: 5. Utilizar expresiones regulares.*/
-
+console.log("ejercicio 5")
 
 /*Ejercicio 6
 Programa una función que dado un arreglo de elementos, elimine los duplicados. Por
 ejemplo, miFuncion(["x", 10, "x", 2, "10", 10, true, true]) devolverá ["x", 10, 2, "10",
 true]. */
+console.log("ejercicio 6")
+function eliminarDuplicados(arr) {
+    return [...new Set(arr)];
+}
+
+const arr = ["x",2,3,"x",true,2,1, true]
+let eliminar = eliminarDuplicados(arr)
+console.log(eliminar)
 
 
 /*Ejercicio 7
@@ -104,7 +112,7 @@ Programa una función que dado un arreglo de números obtenga el promedio. Por
 ejemplo, promedio([9,8,7,6,5,4,3,2,1,0]) devolverá 4.5. No utilizar estructuras
 repetitivas. Consultar en la documentación algún método de los arreglos que permitan
 solucionar el ejercicio. */
-
+console.log("ejercicio 7")
 
 /*Ejercicio 8
 Programa una clase llamada Pelicula.
@@ -126,3 +134,4 @@ una posición.
 • Crea un método que devuelva toda la ficha técnica de la película.
 • A partir de un arreglo con la información de 3 películas genera 3 instancias de la
 clase de forma automatizada e imprime la ficha técnica de cada película. */
+console.log("ejercicio 8 ")
