@@ -1,7 +1,7 @@
 /* Ejercicio 1
 Programa una función para contar el número de veces que se repite una palabra en un
 texto largo. Por ejemplo, miFuncion("hola mundo chau mundo", "mundo") devolverá 2.*/
-
+console.log("ejercicio 1")
 function miFuncion(texto, palabra){
     
     let ponerMinuscula = texto.toLowerCase();
@@ -27,7 +27,7 @@ miFuncion(textoLargo, "Lorem")
 /*Ejercicio 2
 Programa una función que elimine cierto patrón de caracteres de un texto dado. Por
 ejemplo, miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá "1, 2, 3, 4 y 5”. */
-
+console.log("ejercicio 2")
 function eliminarPatron(texto, patron){
     let patronRegex = new RegExp(patron, 'g')
     let textoSinPatron = texto.replace(patronRegex, ' ')
@@ -42,7 +42,7 @@ console.log(textoSinPatron)
 /*Ejercicio 3
 Programa una función para convertir números de base binaria a decimal y viceversa. Por
 ejemplo, miFuncion(100, 2) devolverá 4 en base 10. */
-
+console.log("ejercicio 3")
 function binarioADecimal (binario){
     let decimal = 0;
     let potencia = 0;
@@ -62,15 +62,16 @@ console.log(decimal)
 /*Ejercicio 4
 Programa una función que dada una fecha válida determine cuantos años han pasado
 hasta el día de hoy. Por ejemplo, miFuncion(new Date(1987,10,5)) devolverá 35 años. */
-
+console.log("ejercicio 4")
 function edad(fecha){
 
     let fechaActual = new Date()
     let anioActual = fechaActual.getFullYear()
-    let mesActual = fechaActual.getMonth() +1;
+    let mesActual = fechaActual.getMonth() + 1;
     let diaActual = fechaActual.getDate();
-
+    
     let separarFecha = fecha.split("-");
+    console.log(separarFecha)
     let anioFecha = parseInt(separarFecha[0]);
     let mesFecha = parseInt(separarFecha[1]);
     let diaFecha = parseInt(separarFecha[2]);
@@ -90,6 +91,7 @@ console.log(cumple)
 Programa una función que dada una cadena de texto cuente el número de vocales y
 consonantes. Por ejemplo, miFuncion("Hola Mundo") devolverá vocales: 4,
 consonantes: 5. Utilizar expresiones regulares.*/
+
 
 /*Ejercicio 6
 Programa una función que dado un arreglo de elementos, elimine los duplicados. Por
