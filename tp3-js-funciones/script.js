@@ -2,7 +2,7 @@
 Programa una función para contar el número de veces que se repite una palabra en un
 texto largo. Por ejemplo, miFuncion("hola mundo chau mundo", "mundo") devolverá 2.*/
 console.log("ejercicio 1")
-function miFuncion(texto, palabra){
+const miFuncion = (texto, palabra) => {
     
     let ponerMinuscula = texto.toLowerCase();
     let palabraMinuscula = palabra.toLowerCase();
@@ -28,7 +28,7 @@ miFuncion(textoLargo, "Lorem")
 Programa una función que elimine cierto patrón de caracteres de un texto dado. Por
 ejemplo, miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá "1, 2, 3, 4 y 5”. */
 console.log("ejercicio 2")
-function eliminarPatron(texto, patron){
+const eliminarPatron = (texto, patron) => {
     let patronRegex = new RegExp(patron, 'g')
     let textoSinPatron = texto.replace(patronRegex, ' ')
     return textoSinPatron
@@ -43,7 +43,7 @@ console.log(textoSinPatron)
 Programa una función para convertir números de base binaria a decimal y viceversa. Por
 ejemplo, miFuncion(100, 2) devolverá 4 en base 10. */
 console.log("ejercicio 3")
-function binarioADecimal (binario){
+const binarioADecimal = (binario) =>{
     let decimal = 0;
     let potencia = 0;
 
@@ -63,7 +63,7 @@ console.log(decimal)
 Programa una función que dada una fecha válida determine cuantos años han pasado
 hasta el día de hoy. Por ejemplo, miFuncion(new Date(1987,10,5)) devolverá 35 años. */
 console.log("ejercicio 4")
-function edad(fecha){
+const edad = (fecha) => {
 
     let fechaActual = new Date()
     let anioActual = fechaActual.getFullYear()
@@ -92,7 +92,7 @@ Programa una función que dada una cadena de texto cuente el número de vocales 
 consonantes. Por ejemplo, miFuncion("Hola Mundo") devolverá vocales: 4,
 consonantes: 5. Utilizar expresiones regulares.*/
 console.log("ejercicio 5")
-function vocalesConsonantes(cadenaTexto){
+const vocalesConsonantes = (cadenaTexto) => {
     let vocales = 0;
     let consonantes = 0;
 
@@ -135,7 +135,7 @@ ejemplo, promedio([9,8,7,6,5,4,3,2,1,0]) devolverá 4.5. No utilizar estructuras
 repetitivas. Consultar en la documentación algún método de los arreglos que permitan
 solucionar el ejercicio. */
 console.log("ejercicio 7")
-function promedioDeArr(arr){
+const promedioDeArr = (arr) => {
     if (arr.length === 0){
         return 0;
     }
@@ -170,3 +170,64 @@ una posición.
 • A partir de un arreglo con la información de 3 películas genera 3 instancias de la
 clase de forma automatizada e imprime la ficha técnica de cada película. */
 console.log("ejercicio 8 ")
+
+class Pelicula{
+    static generoAceptados = ['Accion', 'Animacion', 'Comedia', 'Drama' , 'Horror' , 'Musical' , 'Thriller']
+
+    constructor(idPelicula, titulo, director, anoEstreno, paisesOrigen, generos, calificacion){
+        
+        this.idPelicula = idPelicula;
+        this.titulo = titulo;
+        this.director = director;
+        this.anoEstreno = anoEstreno;
+        this.paisesOrigen = paisesOrigen;
+        this.generos = generos;
+        this.calificacion = calificacion;
+
+        this.validarId();
+        this.validarTitulo();
+        this.validarDirector();
+        this.validarAnoEstreno();
+        this.validarPaisesOrigen();
+        this.validarGeneros();
+        this.validarCalificacion();
+
+    }
+    validarId(){
+
+    }
+    validarTitulo(){
+        if (this.titulo.length > 100){
+            throw new Error("El titulo no puede superar los 100 caracteres")
+        }
+    }
+    validarDirector(){
+        if (this.director.length > 50){
+            throw new Error("El nombre del director no puede superar los 50 caracteres")
+        }
+    }
+    validarAnoEstreno(){
+
+    }
+    validarPaisesOrigen(){
+
+    }
+    validarGeneros(){
+
+    }
+    validarCalificacion(){
+
+    }
+    obtenerGrilla(){
+        const grilla = `
+        ID : ${this.idPelicula}
+        Titulo : ${this.titulo}
+        Director : ${this.director}
+        Año de Estreno: ${this.anoEstreno}
+        Paises de Origen: ${this.paisesOrigen.join(', ')}
+        Generos: ${this.generos.join(', ')}
+        Calificacion: ${this.calificacion}
+        `;
+        return grilla
+    }
+}
