@@ -92,6 +92,27 @@ Programa una función que dada una cadena de texto cuente el número de vocales 
 consonantes. Por ejemplo, miFuncion("Hola Mundo") devolverá vocales: 4,
 consonantes: 5. Utilizar expresiones regulares.*/
 console.log("ejercicio 5")
+function vocalesConsonantes(cadenaTexto){
+    let vocales = 0;
+    let consonantes = 0;
+
+    let cadenaMinuscula = cadenaTexto.toLowerCase();
+
+    for (let i = 0; i < cadenaMinuscula.length; i++){
+        let caracteres = cadenaMinuscula[i]
+
+        if (caracteres.match(/[aeiouáéíóú]/)){
+            vocales++
+        }
+        else if (caracteres.match(/[bcdfghjklmnñpqrstvwxyz]/)){
+            consonantes++
+        }
+    }
+
+    return { vocales:vocales, consonantes:consonantes}
+}
+
+console.log(vocalesConsonantes("hola Mundo"))
 
 
 /*Ejercicio 6
