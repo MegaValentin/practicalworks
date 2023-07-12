@@ -172,7 +172,7 @@ clase de forma automatizada e imprime la ficha técnica de cada película. */
 console.log("ejercicio 8 ")
 
 class Pelicula{
-    static generoAceptados = ['Accion', 'Animacion', 'Comedia', 'Drama' , 'Horror' , 'Musical' , 'Thriller']
+    static generoAceptados = ['Action', 'Animation', 'Comedy', 'Drama', 'Horror', 'Musical', 'Thriller']
 
     constructor(idPelicula, titulo, director, anoEstreno, paisesOrigen, generos, calificacion){
         
@@ -194,7 +194,10 @@ class Pelicula{
 
     }
     validarId(){
-
+        const idRegex = /^[A-Za-z]{2}\d{7}$/;
+        if (!idRegex.test(this.idPelicula)){
+            throw new Error("El ID de la pelicula no valido")
+        }
     }
     validarTitulo(){
         if (this.titulo.length > 100){
@@ -207,16 +210,30 @@ class Pelicula{
         }
     }
     validarAnoEstreno(){
-
+        if (!Number.isInteger(this.anoEstreno || String(this.anoEstreno).length !== 4)){
+            throw new Error("El año de estreno debe ser un numero de digitos")
+        }
     }
     validarPaisesOrigen(){
-
+        if (!Array.isArray(this.paisesOrigen)) {
+            throw new Error("El país o países de origen deben ser proporcionados en forma de array.");
+          }
     }
     validarGeneros(){
+        if (!Array.isArray(this.generos)){
+            throw new Error("Los generos deben ser propocionados en forma de array")
+        }
 
+        for (const genero of this.generos) {
+            if(!Pelicula.generoAceptados.includes(genero)) {
+                throw new Error(`El genero ${genero} no es valido`)
+            }
+        }
     }
     validarCalificacion(){
-
+        if(!Number.isFinite(this.calificacion) || this.calificacion < 0 || this.calificacion > 10){
+            throw new Error("Debe ser una calificacion entre 0 y 10")
+        }
     }
     obtenerGrilla(){
         const grilla = `
@@ -229,5 +246,55 @@ class Pelicula{
         Calificacion: ${this.calificacion}
         `;
         return grilla
+    }
+    static obtenerGenerosAceptados() {
+        return Pelicula.generoAceptados;
+    }
+}
+const peliculas = [
+    {
+      idPelicula: "AA7654321",
+      titulo: "Pelicula 1",
+      director: "Director 1",
+      anoEstreno: 2022,
+      paisesOrigen: ["País 1"],
+      generos: ["Action", "Drama"],
+      calificacion: 8.5
+    },
+    {
+      idPelicula: "CD9876543",
+      titulo: "Pelicula 2",
+      director: "Director 2",
+      anoEstreno: 2021,
+      paisesOrigen: ["País 2"],
+      generos: ["Comedy"],
+      calificacion: 7.2
+    },
+    {
+      idPelicula: "EF5432109",
+      titulo: "Pelicula 3",
+      director: "Director 3",
+      anoEstreno: 2023,
+      paisesOrigen: ["País 3"],
+      generos: ["Horror", "Thriller"],
+      calificacion: 6.9
+    }
+];
+for (const datosPeliculas of peliculas){
+    try{
+        const pelicula = new Pelicula(
+            datosPeliculas.idPelicula,
+            datosPeliculas.titulo,
+            datosPeliculas.director,
+            datosPeliculas.anoEstreno,
+            datosPeliculas.paisesOrigen,
+            datosPeliculas.generos,
+            datosPeliculas.calificacion
+        );
+        console.log(pelicula.obtenerGrilla())
+        console.log("-".repeat(50))
+    } catch (error){
+        console.log(`Error al crear la pelicula: ${error.message}`)
+        console.log("-".repeat(50))
     }
 }
